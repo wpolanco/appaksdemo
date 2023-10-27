@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appaks
+  labels:
+    app: appaks
+  namespace: namespace-workflow-1698413598129
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appaks
+  template:
+    metadata:
+      labels:
+        app: appaks
+    spec:
+      containers:
+        - name: appaks
+          image: acrworkflow1698413598129.azurecr.io/image-workflow-1698413598129:latest
+          ports:
+            - containerPort: 8080
